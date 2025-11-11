@@ -1,9 +1,9 @@
 # Lab 6 - Data Security and Encryption
 
-**Student ID:** 7702185
-**Name:** Alexandre VITTENET
-**Course:** Cybersecurity - Fall 2025
-**Instructor:** Asst. Prof. Essaid Meryam
+- **Student ID:** 7702185
+- **Name:** Alexandre VITTENET
+- **Course:** Cybersecurity - Fall 2025
+- **Instructor:** Asst. Prof. Essaid Meryam
 
 ## Language Used
 - Python 3.12+
@@ -15,7 +15,7 @@
 
 ### Installation
 ```bash
-# Using virtual environment (recommended)
+# Use a virtual environment
 python3 -m venv venv
 source venv/bin/activate
 # Install pycryptodome to have Crypto.Random and Crypto.Cipher for ex3
