@@ -1,5 +1,15 @@
-1)
-2)
-3)
-4)
-5)
+1) Why are AEAD modes preferred over "AES-CBC + separate HMAC"?
+AEAD modes like AES-GCM are better because they do encryption and authentication in one step together. With AES-CBC + HMAC, you need to do two separate operations and it's more complicated. Also, if you make mistake in the order (encrypt then MAC or MAC then encrypt), it can create security problems. AEAD is more simple and more safe because everything is done automatically in one time.
+
+2) In hybrid encryption, why not use RSA for the whole file?
+RSA is very slow compared to symmetric encryption like AES. If you encrypt a big file with RSA, it takes too much time and uses too much computation power. Also, RSA can only encrypt small amount of data (limited by the key size). So in hybrid encryption, we use RSA only for encrypting the small symmetric key, and then we use AES for encrypting the actual file data because it's much faster.
+
+3) What breaks if you reuse a nonce in AES-GCM with the same key?
+If you reuse the same nonce with same key in AES-GCM, it's very dangerous. The attacker can compare the two ciphertext and find patterns to discover informations about the plaintext. Also, the authentication tag becomes not secure anymore, so attacker can maybe modify the messages without being detected. This is why we must always generate a new random nonce for each encryption.
+
+4) Two files differ by 1 byte. What should their SHA-256 digests look like?
+The two SHA-256 digests should be completely different. Even if only one byte changed in the file, the hash output will look totally random and very different from the original hash. This is called the "avalanche effect". Almost all the characters in the hash (around 96-100%) will be different. This is important for detecting any modification in the file, even very small changes.
+
+5) Name two non-cryptographic reasons availability can fail even if data is well-encrypted.
+First reason: Hardware failure. For example, if the hard disk breaks or the server has physical damage, the encrypted data cannot be accessed even if the encryption is perfect.
+Second reason: Network problems. If there is network outage or DDoS attack, users cannot connect to the server to access the data, even if the data is encrypted correctly and stored safely.

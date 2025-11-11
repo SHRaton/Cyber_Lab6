@@ -49,6 +49,7 @@ Demonstrates authenticated encryption with tampering detection.
 - `lab6_ex3.py` - AES-GCM authenticated encryption
 - `README.md` - This file
 - `data.txt` - Sample file (generated automatically by Exercise 2)
+- `quiz_answers.txt` - Answers to Quiz
 
 ## Notes
 All exercises include color-coded output for better readability and demonstrate core cryptographic concepts as specified in Lecture 6.
